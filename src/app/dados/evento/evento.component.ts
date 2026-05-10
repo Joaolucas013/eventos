@@ -17,7 +17,7 @@ import { DestaqueTextosDirective } from '../../destaque-textos.directive';
 import { RouterLink } from '@angular/router';
 import { CadastrarEventosComponent } from '../../cadastrar-eventos/cadastrar-eventos.component';
 import { ServiceService } from '../../servico/service.service';
-import { ColorAdressDirective } from "../../color-adress.directive";
+import { ColorAdressDirective } from '../../color-adress.directive';
 import { EventColorDirective } from '../../event-color.directive';
 
 @Component({
@@ -27,9 +27,9 @@ import { EventColorDirective } from '../../event-color.directive';
     DestaqueTextosDirective,
     RouterLink,
     CadastrarEventosComponent,
-    ColorAdressDirective, 
-    EventColorDirective
-],
+    ColorAdressDirective,
+    EventColorDirective,
+  ],
   templateUrl: './evento.component.html',
   styleUrl: './evento.component.css',
 })
@@ -49,8 +49,13 @@ export class EventoComponent implements OnInit {
   apenasOnlines(msg: string) {
     if (msg == 'online') {
       this.eventos.set(this.originais().filter((e) => e.eventoOnline));
-    } else  {
+    } else {
       this.eventos.set(this.originais());
     }
+  }
+
+  limparLista() {
+    this.eventos.set([]);
+    this.originais.set([]);
   }
 }

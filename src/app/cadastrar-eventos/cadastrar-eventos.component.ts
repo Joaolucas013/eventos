@@ -14,7 +14,7 @@ export class CadastrarEventosComponent {
 
   limparLista(evento: Event) {
     const tipoBotao = evento.target as HTMLElement;
-    const botao = tipoBotao.closest('.limpar-eventos');
+    const botao = tipoBotao.closest('.remove');
     const apenasOnline = tipoBotao.closest('.apenas-online');
 
     if (botao) {

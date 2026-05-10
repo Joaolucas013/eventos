@@ -1,4 +1,5 @@
 <app-cadastrar-eventos
+  (enviaEventoLimpar)="limparLista()"
   (eventoOnline)="apenasOnlines($event) "
 >
   <h2 class="titulo">Cadastrar novo evento</h2>
@@ -8,6 +9,10 @@
     </button>
     <button class="apenas-online btn" type="button" >
       Apenas eventos onlines
+    </button>
+
+       <button class="remove btn" type="button" >
+      Remover eventos
     </button>
   </div>
 </app-cadastrar-eventos>
