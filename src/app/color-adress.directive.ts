@@ -1,10 +1,18 @@
-import { Directive } from '@angular/core';
+import { afterRender, Directive, effect, ElementRef, input } from '@angular/core';
 
 @Directive({
   selector: '[appColorAdress]'
 })
 export class ColorAdressDirective {
+  appColorAdress = input.required<string>();
+  colorCidade = "#18379d"
 
-  constructor() { }
+  
+  constructor(elemento: ElementRef<HTMLElement>) {
+    effect(() => {
+        elemento.nativeElement.style.color=this.colorCidade
+        
+    })
+   }
 
 }

@@ -17,6 +17,8 @@ import { DestaqueTextosDirective } from '../../destaque-textos.directive';
 import { RouterLink } from '@angular/router';
 import { CadastrarEventosComponent } from '../../cadastrar-eventos/cadastrar-eventos.component';
 import { ServiceService } from '../../servico/service.service';
+import { ColorAdressDirective } from "../../color-adress.directive";
+import { EventColorDirective } from '../../event-color.directive';
 
 @Component({
   selector: 'app-evento',
@@ -25,7 +27,9 @@ import { ServiceService } from '../../servico/service.service';
     DestaqueTextosDirective,
     RouterLink,
     CadastrarEventosComponent,
-  ],
+    ColorAdressDirective, 
+    EventColorDirective
+],
   templateUrl: './evento.component.html',
   styleUrl: './evento.component.css',
 })

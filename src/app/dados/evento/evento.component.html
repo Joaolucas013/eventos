@@ -6,7 +6,7 @@
     <button routerLink="/eventos" class="btn-cadastro btn">
       Cadastre aqui
     </button>
-    <button class="apenas-online btn on" type="button" >
+    <button class="apenas-online btn" type="button" >
       Apenas eventos onlines
     </button>
   </div>
@@ -15,7 +15,7 @@
 <div class="eventos">
   @for (evento of eventos(); track evento.nomeDoEvento) {
     <div class="evento">
-      <span class="nome-evento">Evento: {{ evento.nomeDoEvento }}</span>
+      <span class="nome-evento" [appEventColor]="evento.nomeDoEvento">Evento: {{ evento.nomeDoEvento }}</span>
     
 
       <div class="qtd-horario">
@@ -34,11 +34,11 @@
       @if (evento.cidade && evento.endereco) {
         <div class="endereco">
           <span class="tipo" [appDestaqueTextos]="evento.tipoEvento"
-            >evento:{{ evento.tipoEvento }}</span
+            > evento:{{ evento.tipoEvento }}</span
           >
           <div class="endereco-evento">
-            <span>Cidade: {{ evento.cidade }}</span>
-            <span>Endereço: {{ evento.endereco }}</span>
+            <span [appColorAdress]="evento.cidade">Cidade: {{ evento.cidade }}</span>
+            <span [appColorAdress]="evento.endereco">Endereço: {{ evento.endereco }}</span>
             <span>Descrição: {{ evento.descricao }}</span>
           </div>
         </div>
