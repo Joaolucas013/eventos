@@ -1,0 +1,57 @@
+<app-cadastrar-eventos
+  (eventoOnline)="apenasOnlines($event) "
+>
+  <h2 class="titulo">Cadastrar novo evento</h2>
+  <div class="btns">
+    <button routerLink="/eventos" class="btn-cadastro btn">
+      Cadastre aqui
+    </button>
+    <button class="apenas-online btn on" type="button" >
+      Apenas eventos onlines
+    </button>
+  </div>
+</app-cadastrar-eventos>
+
+<div class="eventos">
+  @for (evento of eventos(); track evento.nomeDoEvento) {
+    <div class="evento">
+      <span class="nome-evento">Evento: {{ evento.nomeDoEvento }}</span>
+    
+
+      <div class="qtd-horario">
+          <span>Responsável:  {{evento.nome}}</span>
+        <label class="qtd" [appDestaqueValores]="evento.totalParticipantes"
+          >participantes: {{ evento.totalParticipantes }}</label
+        >
+        <div class="data dados">
+          <span>Data: {{ evento.dataEvento }}</span>
+          <span class="horario"
+            >horario: {{ evento.horaEvento }}
+            <img src="relogio.png" alt="" class="relogio"
+          /></span>
+        </div>
+      </div>
+      @if (evento.cidade && evento.endereco) {
+        <div class="endereco">
+          <span class="tipo" [appDestaqueTextos]="evento.tipoEvento"
+            >evento:{{ evento.tipoEvento }}</span
+          >
+          <div class="endereco-evento">
+            <span>Cidade: {{ evento.cidade }}</span>
+            <span>Endereço: {{ evento.endereco }}</span>
+            <span>Descrição: {{ evento.descricao }}</span>
+          </div>
+        </div>
+      } @else {
+        <div class="endereco">
+          <span class="evento-online">Evento Online</span>
+          <span
+            >Link do evento: <a href="">{{ evento.link }}</a></span
+          >
+        </div>
+      }
+    </div>
+  } @empty {
+    <span class="lista-vazia"> Não há eventos cadastrados.</span>
+  }
+</div>

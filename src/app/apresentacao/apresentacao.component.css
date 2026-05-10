@@ -1,0 +1,38 @@
+h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.evento,
+.gente {
+  color: #ddaa02;
+}
+
+.sessao-apresentacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.btn-listar {
+  border-radius: 8px;
+  width: 220px;
+  padding: 3px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.btn-listar:hover {
+  cursor: pointer;
+  background-color: rgb(146, 152, 158);
+}
+
+
+@media screen and (min-width: 320px) and (max-width:600px) {
+        .sessao-apresentacao {
+            margin-left: 100px
+        }
+}

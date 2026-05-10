@@ -1,0 +1,133 @@
+.eventos {
+  width: 96%;
+  min-height: 40vh;
+  padding: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  background-color: rgb(52, 32, 39);
+  border-radius: 10px;
+  margin-left: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.evento {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 30%;
+  padding: 16px;
+  background-color: rgb(173, 182, 179);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(170, 124, 124, 0.15);
+
+}
+
+.nome-evento {
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.qtd-horario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 20px 20px rgba(68, 41, 41, 0.44);
+  font-size: 20px;
+}
+
+.evento-online {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 18px;
+font-weight: 900;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.endereco {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+.endereco-evento, .endereco {
+  display: flex;
+  flex-direction: column;
+  min-height: 10vh;
+}
+
+
+
+.lista-vazia {
+  font-size: 40px;
+  text-align: center;
+  color: white;
+}
+
+.tipo {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.qtd {
+  font-size: 24px;
+}
+
+.qtd::after {
+  content: " pessoas";
+}
+
+.titulo {
+  color: white;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 16px;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+  
+}
+
+ .btn {
+  padding: 4px;
+  border-radius: 12px;
+  background-color: rgb(47, 5, 17);
+  color: #ebcccc;
+  margin: 0 0 10px 0;
+  width: 160px;
+  font-size: 18px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(146, 152, 158);
+}
+
+.horario {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.relogio {
+    max-width: 14px;
+}
+

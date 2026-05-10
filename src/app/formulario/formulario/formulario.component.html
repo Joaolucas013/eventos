@@ -1,0 +1,135 @@
+<section class="dados">
+  <app-apresentacao></app-apresentacao>
+
+  <section class="formulario">
+    <form [formGroup]="eventoForm" (ngSubmit)="salvarEvento()">
+      <div class="dados__divisao">
+        <label class="label dados">
+          Nome do Organizador:
+          <input type="text" formControlName="nome" />
+        </label>
+
+        <label class="label dados">
+          Email:
+          <input type="text" formControlName="email" />
+        </label>
+      </div>
+
+      <div class="dados__divisao">
+        <label class="label dados">
+          Telefone do Organizador
+          <input type="text" formControlName="telefoneOrganizador" />
+        </label>
+
+        <label class="label dados">
+          Nome do Evento:
+          <input type="text" formControlName="nomeDoEvento" />
+        </label>
+      </div>
+      <div class="dados__divisao">
+        <label class="label">
+          Tipo Evento
+          <select
+            name="tipoEvento"
+            id="select-evento"
+            formControlName="tipoEvento"
+          >
+            <option value="" disabled selected>Selecione o tipo</option>
+            @for (evento of evento | keyvalue; track evento.key) {
+              <option [value]="evento.key">
+                {{ evento.value }}
+              </option>
+            }
+          </select>
+        </label>
+        <label class="label dados">
+          Data do Evento:
+          <input type="date" class="hora-evento" formControlName="dataEvento" />
+        </label>
+      </div>
+      <div class="dados__divisao horario">
+        <label class="label dados">
+          Hora do Evento:
+          <input type="time" formControlName="horaEvento" />
+        </label>
+
+        <label class="label dados">
+          Total de participantes:
+          <input
+            type="number"
+            class="number"
+            min="1"
+            max="500"
+            formControlName="totalParticipantes"
+          />
+        </label>
+      </div>
+
+      <div class="dados-online">
+        <label class="dados-checkbox">
+          Evento online:
+          <input
+            type="checkbox"
+            class="checkbox"
+            formControlName="eventoOnline"
+          />
+        </label>
+
+        <label class="link-dados">
+          Link:
+          <input
+            type="text"
+            placeholder="https://"
+            class="link-evento"
+            formControlName="link"
+          />
+           @if (eventoForm.get("eventoOnline")?.value) {
+          <div class="msg-erro">
+            Link é obrigatório!
+          </div>
+        }
+        </label>
+       
+      </div>
+
+      <div class="dados__divisao">
+        <label
+          class="label dados"
+          [ngClass]="eventoForm.get('link')?.value ? 'invalido' : 'valido'"
+        >
+          Endereço:
+          <input type="text" class="localizacao" formControlName="endereco" />
+        </label>
+
+        <label
+          class="label dados"
+          [ngClass]="eventoForm.get('link')?.value ? 'invalido' : 'valido'"
+        >
+          Cidade:
+          <input type="text" class="localizacao" formControlName="cidade" />
+        </label>
+      </div>
+
+      <label class="label dados">
+        Descrição:
+        <textarea
+          name=""
+          rows="4"
+          class="descricao"
+          formControlName="descricao"
+        ></textarea>
+      </label>
+
+      <div class="btns">
+        <button
+          type="submit"
+          [disabled]="eventoForm.invalid"
+          [ngClass]="eventoForm.valid ? 'botao-salvar' : 'botao-desabilitado'"
+        >
+          Cadastrar
+        </button>
+        <button type="reset" class="limpar">Limpar dados</button>
+      </div>
+    </form>
+  </section>
+</section>
