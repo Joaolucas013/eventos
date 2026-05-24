@@ -1,34 +1,19 @@
-<app-cadastrar-eventos
-  (enviaEventoLimpar)="limparLista()"
-  (eventoOnline)="apenasOnlines($event) "
->
-  <h2 class="titulo">Cadastrar novo evento</h2>
-  <div class="btns">
-    <button routerLink="/eventos" class="btn-cadastro btn">
-      Cadastre aqui
-    </button>
-    <button class="apenas-online btn" type="button" >
-      Apenas eventos onlines
-    </button>
-
-       <button class="remove btn" type="button" >
-      Remover eventos
-    </button>
-  </div>
-</app-cadastrar-eventos>
-
-<div class="eventos">
-  @for (evento of eventos(); track evento.nomeDoEvento) {
     <div class="evento">
-      <span class="nome-evento" [appEventColor]="evento.nomeDoEvento">Evento: {{ evento.nomeDoEvento }}</span>
-    
+     <div class="cabecalho">
+    <span [ngClass]="verificaNome()">Evento: {{ evento.nomeDoEvento }}</span>
 
-      <div class="qtd-horario">
-          <span>Responsável:  {{evento.nome}}</span>
+      <div class="botoes">
+         <button class="botao" (click)="editarEvento(evento.id!)"><img src="/icone-editar.png" alt="Icone de editar evento" class="icon"></button>
+       <button class="botao"  [routerLink]="['/excluirEvento', evento.id]"><img src="/icone-excluir.png" alt="Icone de excluir evento" class="icon"></button>
+      </div>
+
+     </div>
+      <div class="qtd-horario" >
+         <span  [appEventColor]="evento.nome">Responsável: {{ evento.nome.toUpperCase() }}</span>
         <label class="qtd" [appDestaqueValores]="evento.totalParticipantes"
           >participantes: {{ evento.totalParticipantes }}</label
         >
-        <div class="data dados">
+        <div class="data">
           <span>Data: {{ evento.dataEvento }}</span>
           <span class="horario"
             >horario: {{ evento.horaEvento }}
@@ -37,9 +22,9 @@
         </div>
       </div>
       @if (evento.cidade && evento.endereco) {
-        <div class="endereco">
+        <div class="cidade-endereco">
           <span class="tipo" [appDestaqueTextos]="evento.tipoEvento"
-            > evento:{{ evento.tipoEvento }}</span
+            > Evento:{{ evento.tipoEvento }}</span
           >
           <div class="endereco-evento">
             <span [appColorAdress]="evento.cidade">Cidade: {{ evento.cidade }}</span>
@@ -48,15 +33,12 @@
           </div>
         </div>
       } @else {
-        <div class="endereco">
+        <div class="online">
           <span class="evento-online">Evento Online</span>
           <span
-            >Link do evento: <a href="">{{ evento.link }}</a></span
+            class="margem-top">Link do evento: <a href="#">{{ evento.link }}</a></span
           >
         </div>
       }
     </div>
-  } @empty {
-    <span class="lista-vazia"> Não há eventos cadastrados.</span>
-  }
-</div>
+

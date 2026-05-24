@@ -1,0 +1,152 @@
+
+.formulario {
+  width: 500px;
+  margin: 0 auto;
+}
+
+form {
+  width: 425px;
+  border: 1px solid rgb(144, 111, 72);
+  border-radius: 0.8rem;
+  margin: 10% auto;
+  background-color: rgb(132, 149, 163);
+  padding: 12px;
+}
+
+.dados__divisao {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 50px;
+}
+.aviso-dados {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-left: 0.4rem;
+}
+
+input {
+  border-radius: 0.4rem;
+}
+
+select {
+  padding: 2px;
+  border-radius: 6px;
+}
+
+select,
+.number,
+.hora-evento {
+  width: 170px;
+}
+
+.checkbox {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.dados-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 10px;
+}
+
+.dados-online {
+  display: flex;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 100px;
+}
+
+.link-evento {
+  padding: 0.1rem;
+  text-align: left;
+  width: 170px;
+}
+
+.link-dados {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+textarea {
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.dados__linha2 {
+  gap: 1em;
+}
+
+.msg-erro {
+  margin-top: 6px;
+  color: #350505;
+  
+}
+
+.invalido {
+  color: transparent;
+}
+
+.btns {
+  display: flex;
+  margin: 10px 0 0px 0;
+  justify-content: space-around;
+}
+
+button {
+  padding: 6px;
+  font-size: 12px;
+  border-radius: 8px;
+  width: 100px;
+}
+
+.descricao {
+  min-height: 120px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 2px solid #d0d0d0;
+  resize: vertical;
+  color: #740707;
+  font-size: 20px;
+  font-family: inherit;
+  line-height: 1.4;
+  background-color: #cab1b1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.botao-salvar {
+  color: #ffffff;
+  background-color: #0d6efd;
+  cursor: pointer;
+}
+
+.botao-desabilitado {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.horario {
+  align-items: center;
+  gap: 112px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
+.mensagem-erro {
+  font-size: 16px;
+  color: red;
+  margin-bottom: 0px;
+}

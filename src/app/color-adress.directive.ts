@@ -5,7 +5,7 @@ import { afterRender, Directive, effect, ElementRef, input } from '@angular/core
 })
 export class ColorAdressDirective {
   appColorAdress = input.required<string>();
-  colorCidade = "#18379d"
+  colorCidade = "#010615"
 
   
   constructor(elemento: ElementRef<HTMLElement>) {

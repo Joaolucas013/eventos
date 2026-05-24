@@ -1,24 +1,24 @@
 import {
   Component,
   computed,
+  EventEmitter,
   input,
   Input,
   OnInit,
+  Output,
   Signal,
   signal,
   WritableSignal,
 } from '@angular/core';
 import { EventoCriado } from '../../formulario/formulario/EventoCriado';
-import { TipoEvento } from '../../formulario/formulario/TipoEvento';
-import { EventoServiceService } from '../../evento-service.service';
-import { ApresentacaoComponent } from '../../apresentacao/apresentacao.component';
 import { DestaqueValoresDirective } from '../../destaque-valores.directive';
 import { DestaqueTextosDirective } from '../../destaque-textos.directive';
-import { RouterLink } from '@angular/router';
-import { CadastrarEventosComponent } from '../../cadastrar-eventos/cadastrar-eventos.component';
-import { ServiceService } from '../../servico/service.service';
+import { Route, Router, RouterLink } from '@angular/router';
+
 import { ColorAdressDirective } from '../../color-adress.directive';
 import { EventColorDirective } from '../../event-color.directive';
+import { CommonModule } from '@angular/common';
+import { EventoServiceService } from '../../evento-service.service';
 
 @Component({
   selector: 'app-evento',
@@ -26,36 +26,27 @@ import { EventColorDirective } from '../../event-color.directive';
     DestaqueValoresDirective,
     DestaqueTextosDirective,
     RouterLink,
-    CadastrarEventosComponent,
     ColorAdressDirective,
     EventColorDirective,
+    CommonModule,
   ],
   templateUrl: './evento.component.html',
   styleUrl: './evento.component.css',
 })
-export class EventoComponent implements OnInit {
-  eventos = signal<EventoCriado[]>([]);
-  originais = signal<EventoCriado[]>([]);
+export class EventoComponent {
+  @Input() evento!: EventoCriado;
+  @Output() eventoAtualizar = new EventEmitter<EventoCriado>();
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: EventoServiceService) {}
 
-  ngOnInit(): void {
-    this.service.obterEventos().subscribe((eventos) => {
-      this.eventos.set(eventos);
-      this.originais.set(eventos);
+  editarEvento(id: string) {
+    const evento = this.service.buscarPorId(id);
+    evento.subscribe((e) => {
+      this.eventoAtualizar.emit(e);
     });
   }
 
-  apenasOnlines(msg: string) {
-    if (msg == 'online') {
-      this.eventos.set(this.originais().filter((e) => e.eventoOnline));
-    } else {
-      this.eventos.set(this.originais());
-    }
-  }
-
-  limparLista() {
-    this.eventos.set([]);
-    this.originais.set([]);
+  verificaNome() {
+    return this.evento.nomeDoEvento.length < 18 ? 'nome-curto' : 'nome-longo';
   }
 }

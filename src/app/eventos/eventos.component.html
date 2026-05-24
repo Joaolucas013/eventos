@@ -1,0 +1,42 @@
+<app-cadastrar-eventos
+  (enviaEventoLimpar)="limparLista()"
+  (eventoOnline)="apenasOnlines($event)"
+>
+  <h2 class="titulo">Eventos de tecnologia</h2>
+  <div class="botoes__pesquisa">
+    <div class="btns">
+      <button class="btn-cadastro btn" [routerLink]="['/eventos']">
+        Cadastre aqui
+      </button>
+      <button class="apenas-online btn" type="button">
+        Apenas eventos onlines
+      </button>
+
+      <button class="remove btn" type="button">Remover eventos</button>
+    </div>
+    <div>
+      <input
+        type="search"
+        class="filtro"
+        placeholder="Busque por  eventos"
+        autofocus
+        (keyup)="buscarEvento()"
+        [(ngModel)]="filtro"
+      />
+    </div>
+  </div>
+</app-cadastrar-eventos>
+<div class="eventos">
+  @for (evento of eventos(); track $index) {
+    <app-evento
+      [evento]="evento"
+      (eventoAtualizar)="irParaEdicao($event)"
+    ></app-evento>
+  } @empty {
+    <div class="lista-vazia">
+      <p>Não há eventos agendados</p>
+    </div>
+  }
+</div>
+
+<app-carregar-mais [haMaisEventos]="haMaisEventos" (click)="carregarMaisEventos()"></app-carregar-mais>

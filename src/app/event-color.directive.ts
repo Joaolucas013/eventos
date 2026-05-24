@@ -7,7 +7,7 @@ export class EventColorDirective {
   appEventColor = input.required<string>();
   constructor(elemento:ElementRef<HTMLElement>) {
     effect(() => {
-      elemento.nativeElement.style.color = 'green'
+      elemento.nativeElement.style.color = '#000000'
     })
    }
 

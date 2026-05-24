@@ -1,7 +1,7 @@
 import { TipoEvento } from './TipoEvento';
 
 export interface EventoCriado {
-  id: string;
+  id?: string;
   nome: string;
   email: string;
   telefoneOrganizador: string;

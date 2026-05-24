@@ -17,5 +17,11 @@ export class EventoServiceService {
     return this.httpClient.post<EventoCriado>(this.API_URL, evento);
   }
 
+  buscarPorId(id: string): Observable<EventoCriado> {
+    return this.httpClient.get<EventoCriado>(`${this.API_URL}/${id}`);
+  }
 
+  deletarEvento(evento: EventoCriado) {
+    return this.httpClient.delete<EventoCriado>(`${this.API_URL}/${evento.id}`);
+  }
 }

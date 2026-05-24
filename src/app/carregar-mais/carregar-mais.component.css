@@ -1,0 +1,24 @@
+.carregar-mais {
+  padding:6px;
+  border-radius: 12px;
+  background-color: rgb(47, 5, 17);
+  color: #ebcccc;
+  margin: 0 0 10px 0;
+
+  font-size: 18px;
+  width: 200px;
+}
+
+.centralizado {
+  display: flex;
+  justify-content: center;
+}
+
+.mensagem-sem-eventos {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 30px;
+  color: white;
+  
+}

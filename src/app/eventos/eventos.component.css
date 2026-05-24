@@ -1,0 +1,77 @@
+.eventos {
+  width: 96%;
+  padding: 10px;
+  display: flex;
+  min-height: 80vh;
+  flex-direction: row;
+  gap: 12px;
+  background-color: rgba(49, 52, 49, 0.516);
+  border-radius: 10px;
+  margin: 10px auto;
+  flex-wrap: wrap; 
+  justify-content: left;
+  box-shadow: 8px 8px 8px 0  #121314;
+}
+
+
+.lista-vazia {
+  font-size: 40px;
+  text-align: center;
+  color: white;
+
+}
+
+.filtro {
+  width: 100%;
+  height: 100%;
+  left: 437px;
+  top: 537px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  border: none;
+  outline: 0;
+  text-decoration: none;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+.titulo {
+  color: rgb(212, 189, 220);
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-left: 16px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 4px;
+  border-radius: 12px;
+  background-color: rgb(47, 5, 17);
+  color: #ebcccc;
+  margin: 0 0 10px 0;
+  width: 160px;
+  font-size: 18px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(146, 152, 158);
+}
+
+
+.botoes__pesquisa {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
